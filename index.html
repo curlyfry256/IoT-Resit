@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+		<charset = "UTF-8">
+		<script type="text/javascript" src="https://pubnub.github.io/eon/v/eon/1.0.0/eon.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://pubnub.github.io/eon/v/eon/1.0.0/eon.css"/>
+		<title>Sensor IoE Resit</title>
+</head>
+<style>
+
+body{
+	background-color: #ffffb3
+}
+</style>
+	<h1>IoT Resit Light Sensor</h1>
+
+	
+
+	
+
+	<div id = "chart"></div>
+	<script type="text/javascript">
+		var pubnub = new PubNub(
+				{
+
+						publishKey: "pub-c-9f573d22-ee55-4c45-aca6-5e4a4d659a2d" ,
+						subscribeKey: "sub-c-b8076c32-a4ad-11e9-bd55-12369b68aa39"
+
+				}
+
+			);
+
+		var channel = "iotchannel";
+
+		eon.chart({
+			channels: [channel],
+			flow: true,
+			pubnub: pubnub,
+			generate: {
+				bindto: '#chart',
+				data: {
+					type: 'spline', 
+					labels: true
+				}
+			}
+		})
+
+
+
+
+	</script>
+
+	</body>
+	<html>
+
